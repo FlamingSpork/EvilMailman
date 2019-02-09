@@ -14,9 +14,9 @@ def machineList(machines):
         print(i, ":  ",machines[i])
 
 def main():
-    mail = smtp.server.MailmanServer(("localhost", 25), None)
+    mail = smtp.server.MailmanServer(("0.0.0.0", 25), None)
     resolver = MemeResolver()
-    dns = DNSServer(resolver, port=53, address="localhost", tcp=False)
+    dns = DNSServer(resolver, port=53, address="0.0.0.0", tcp=False)
 
     dns.start_thread()
     print("DNS server on UDP 53 started")

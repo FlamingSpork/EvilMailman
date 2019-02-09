@@ -99,7 +99,7 @@ def machineList(machines):
         print(i, ":  ",machines[i])
 
 def run():
-    foo = MailmanServer(("localhost", 25), None)
+    foo = MailmanServer(("0.0.0.0", 25), None)
     print("Server launched.")
     print("Commands:")
     print("         l - List known machines")

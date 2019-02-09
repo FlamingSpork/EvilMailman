@@ -48,7 +48,7 @@ def machineList(machines):
 
 def main():
     resolver = MemeResolver()
-    server = DNSServer(resolver, port=53, address="localhost", tcp=False)
+    server = DNSServer(resolver, port=53, address="0.0.0.0", tcp=False)
     server.start_thread()
     print("Server launched.")
     print("Commands:")
