@@ -19,6 +19,7 @@ import socket
 import subprocess
 import urllib.request
 import os
+import sys
 
 def wget(cmd):
     #parse a "wg http://..." command
@@ -517,7 +518,7 @@ class DNSClient:
             responce = self.socket.recv(1024)
         except Exception:
             print('Time Out: {0}'.format(self.server))
-            exit(0)
+            sys.exit(0)
         format.decode(responce)
 
         if len(format.answers) > 0:
