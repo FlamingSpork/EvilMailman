@@ -72,4 +72,5 @@ def main():
     finally:
         server.stop()
 
-main()
+if __name__ == "__main__":
+    main()

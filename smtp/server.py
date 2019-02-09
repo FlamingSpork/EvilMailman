@@ -123,4 +123,5 @@ def run():
         else:
             print("Unknown command.")
 
-run()
+if __name__ == "__main__":
+    run()
