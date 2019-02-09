@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="903a08cc-4263-4f0b-af74-7c9e473db422" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smtp/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/smtp/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyinstaller.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +15,7 @@
     <SUITE FILE_PATH="coverage/EvilMailman$client__1_.coverage" NAME="client (1) Coverage Results" MODIFIED="1549704363107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dns" />
     <SUITE FILE_PATH="coverage/EvilMailman$client__2_.coverage" NAME="client (2) Coverage Results" MODIFIED="1549704377315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/smtp" />
     <SUITE FILE_PATH="coverage/EvilMailman$server.coverage" NAME="server Coverage Results" MODIFIED="1549686351666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/EvilMailman$both_server.coverage" NAME="both_server Coverage Results" MODIFIED="1549705561066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/EvilMailman$both_server.coverage" NAME="both_server Coverage Results" MODIFIED="1549712691367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EvilMailman$server__1_.coverage" NAME="server (1) Coverage Results" MODIFIED="1549709616074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dns" />
     <SUITE FILE_PATH="coverage/EvilMailman$client.coverage" NAME="client Coverage Results" MODIFIED="1549686744554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -33,12 +32,14 @@
           <entry key="gitmodules" value="1" />
           <entry key="py" value="23" />
           <entry key="pyi" value="1" />
-          <entry key="spec" value="1" />
+          <entry key="sh" value="1" />
+          <entry key="spec" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Bash" value="1" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="Python" value="23" />
           <entry key="PythonStub" value="1" />
         </counts>
@@ -46,14 +47,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="954" />
-          <entry key="py" value="8516" />
-          <entry key="txt" value="833" />
+          <entry key="py" value="8531" />
+          <entry key="sh" value="449" />
+          <entry key="txt" value="920" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="833" />
-          <entry key="Python" value="9470" />
+          <entry key="Bash" value="449" />
+          <entry key="PLAIN_TEXT" value="920" />
+          <entry key="Python" value="9485" />
         </counts>
       </usages-collector>
     </session>
@@ -63,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smtp/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+            <state relative-caret-position="111">
+              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
               <folding>
                 <element signature="e#365#379#0" expanded="true" />
               </folding>
@@ -75,18 +78,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dns/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="499" column="29" selection-start-line="497" selection-start-column="8" selection-end-line="499" selection-end-column="29" />
+            <state relative-caret-position="17">
+              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
               <folding>
-                <element signature="e#498#511#0" expanded="true" />
-                <marker date="1549710272807" expanded="true" signature="1138:1140" ph="..." />
-                <marker date="1549710272807" expanded="true" signature="14685:14692" ph="..." />
+                <marker date="1549712513932" expanded="true" signature="1149:1151" ph="..." />
+                <marker date="1549712513932" expanded="true" signature="14696:14703" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dns/server.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="850">
@@ -129,13 +131,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/both_server.spec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-264" />
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/both_server.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -145,6 +140,15 @@
                 <element signature="e#115#133#0" expanded="true" />
                 <marker date="1549708174675" expanded="true" signature="379:384" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pyinstaller.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -171,6 +175,7 @@
       <find>DNSRecord</find>
       <find>NXDOM</find>
       <find>NXDOMAIN</find>
+      <find>exit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -190,9 +195,10 @@
         <option value="$PROJECT_DIR$/client.py" />
         <option value="$PROJECT_DIR$/dns/server.py" />
         <option value="$PROJECT_DIR$/both_server.py" />
-        <option value="$PROJECT_DIR$/dns/client.py" />
         <option value="$PROJECT_DIR$/smtp/client.py" />
         <option value="$PROJECT_DIR$/smtp/server.py" />
+        <option value="$PROJECT_DIR$/dns/client.py" />
+        <option value="$PROJECT_DIR$/pyinstaller.sh" />
       </list>
     </option>
   </component>
@@ -273,7 +279,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.server (1)">
+  <component name="RunManager" selected="Python.both_server">
     <configuration name="both_server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="EvilMailman" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -393,8 +399,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.server (1)" />
         <item itemvalue="Python.both_server" />
+        <item itemvalue="Python.server (1)" />
         <item itemvalue="Python.client (2)" />
         <item itemvalue="Python.client (1)" />
         <item itemvalue="Python.client" />
@@ -482,17 +488,32 @@
       <option name="project" value="LOCAL" />
       <updated>1549710371326</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Created .gitignore to run pyinstaller">
+      <created>1549711746692</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1549711746692</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fix to get pyinstaller to function.">
+      <created>1549712895924</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1549712895924</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.49924356" weight="0.3289689" />
@@ -531,7 +552,9 @@
     <MESSAGE value="Added command loop to DNS server." />
     <MESSAGE value="Implemented a server console for both." />
     <MESSAGE value="Added temp file dropper and made servers bind to all interfaces.&#10;&#10;The file dropper puts the files in what python thinks is the correct temp folder, chmods them to 0555, and run them." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added temp file dropper and made servers bind to all interfaces.&#10;&#10;The file dropper puts the files in what python thinks is the correct temp folder, chmods them to 0555, and run them." />
+    <MESSAGE value="Created .gitignore to run pyinstaller" />
+    <MESSAGE value="Fix to get pyinstaller to function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix to get pyinstaller to function." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/aiosmtpd/aiosmtpd/__init__.py">
@@ -635,6 +658,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/smtp/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smtp/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding>
+            <element signature="e#365#379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dns/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding>
+            <marker date="1549712513932" expanded="true" signature="1149:1151" ph="..." />
+            <marker date="1549712513932" expanded="true" signature="14696:14703" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both_server.spec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/both_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -646,25 +704,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dns/client.py">
+    <entry file="file://$PROJECT_DIR$/pyinstaller.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="499" column="29" selection-start-line="497" selection-start-column="8" selection-end-line="499" selection-end-column="29" />
-          <folding>
-            <element signature="e#498#511#0" expanded="true" />
-            <marker date="1549710272807" expanded="true" signature="1138:1140" ph="..." />
-            <marker date="1549710272807" expanded="true" signature="14685:14692" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smtp/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
-          <folding>
-            <element signature="e#365#379#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -680,18 +723,6 @@
             <marker date="1549707973107" expanded="true" signature="1332:1337" ph="..." />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smtp/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both_server.spec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264" />
       </provider>
     </entry>
   </component>
