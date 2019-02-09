@@ -9,6 +9,7 @@ import time
 import errno
 import threading
 from smtpd import *
+from smtpd import SMTPChannel #for some reason, this is necessary on some versions of Py3
 
 class Devnull:
     def write(self, msg): pass
