@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="903a08cc-4263-4f0b-af74-7c9e473db422" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pyinstaller.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/both_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,14 +23,16 @@
     <session id="-88904164">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitmodules" value="1" />
-          <entry key="py" value="23" />
+          <entry key="py" value="24" />
           <entry key="pyi" value="1" />
           <entry key="sh" value="1" />
           <entry key="spec" value="2" />
@@ -40,34 +42,34 @@
         <counts>
           <entry key="Bash" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="23" />
+          <entry key="Python" value="24" />
           <entry key="PythonStub" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="954" />
-          <entry key="py" value="8531" />
+          <entry key="Python Console" value="1196" />
+          <entry key="py" value="10578" />
           <entry key="sh" value="449" />
-          <entry key="txt" value="920" />
+          <entry key="txt" value="967" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="449" />
-          <entry key="PLAIN_TEXT" value="920" />
-          <entry key="Python" value="9485" />
+          <entry key="PLAIN_TEXT" value="967" />
+          <entry key="Python" value="11774" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smtp/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            <state relative-caret-position="1054">
+              <caret line="62" column="65" lean-forward="true" selection-start-line="33" selection-end-line="62" selection-end-column="65" />
               <folding>
                 <element signature="e#365#379#0" expanded="true" />
               </folding>
@@ -78,9 +80,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dns/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+            <state relative-caret-position="-8892">
+              <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
               <folding>
+                <element signature="e#498#511#0" expanded="true" />
                 <marker date="1549712513932" expanded="true" signature="1149:1151" ph="..." />
                 <marker date="1549712513932" expanded="true" signature="14696:14703" ph="..." />
               </folding>
@@ -88,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dns/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
+            <state relative-caret-position="325">
               <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
               <folding>
                 <element signature="e#161#181#0" expanded="true" />
@@ -104,10 +107,36 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/both_client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5049">
+              <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
+              <folding>
+                <element signature="e#499#513#0" expanded="true" />
+                <element signature="e#2343#5213#0" />
+                <element signature="e#5239#6641#0" />
+                <element signature="e#6669#7030#0" />
+                <element signature="e#7061#7860#0" />
+                <element signature="e#7889#8173#0" />
+                <element signature="e#8202#8657#0" />
+                <element signature="e#8689#8925#0" />
+                <element signature="e#8958#9153#0" />
+                <element signature="e#9182#10888#0" />
+                <marker date="1550198558396" expanded="true" signature="1764:2238" ph="..." />
+                <marker date="1550198558396" expanded="true" signature="18423:18497" ph="..." />
+                <marker date="1550198558396" expanded="true" signature="19278:19415" ph="..." />
+                <marker date="1550198558396" expanded="true" signature="19461:19466" ph="..." />
+                <marker date="1550198558396" expanded="true" signature="19461:19759" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/venv/Lib/site-packages/dnslib/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="1887">
               <caret line="113" column="54" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="54" />
             </state>
           </provider>
@@ -116,7 +145,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/venv/Lib/site-packages/dnslib/dns.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
+            <state relative-caret-position="748">
               <caret line="49" column="65" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="65" />
             </state>
           </provider>
@@ -134,10 +163,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/both_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="255">
               <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
               <folding>
-                <element signature="e#115#133#0" expanded="true" />
                 <marker date="1549708174675" expanded="true" signature="379:384" ph="..." />
               </folding>
             </state>
@@ -176,6 +204,7 @@
       <find>NXDOM</find>
       <find>NXDOMAIN</find>
       <find>exit</find>
+      <find>SERVER</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,6 +228,7 @@
         <option value="$PROJECT_DIR$/smtp/server.py" />
         <option value="$PROJECT_DIR$/dns/client.py" />
         <option value="$PROJECT_DIR$/pyinstaller.sh" />
+        <option value="$PROJECT_DIR$/both_client.py" />
       </list>
     </option>
   </component>
@@ -237,6 +267,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,7 +289,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -502,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549712895924</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added build script">
+      <created>1549722080814</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1549722080814</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -510,10 +547,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.25340393" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.49924356" weight="0.3289689" />
@@ -531,6 +568,29 @@
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25340393" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="4" sideWeight="0.49924356" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="SciView" order="2" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -554,35 +614,15 @@
     <MESSAGE value="Added temp file dropper and made servers bind to all interfaces.&#10;&#10;The file dropper puts the files in what python thinks is the correct temp folder, chmods them to 0555, and run them." />
     <MESSAGE value="Created .gitignore to run pyinstaller" />
     <MESSAGE value="Fix to get pyinstaller to function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix to get pyinstaller to function." />
+    <MESSAGE value="Added build script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added build script" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/aiosmtpd/aiosmtpd/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aiosmtpd/aiosmtpd/__main__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aiosmtpd/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aiosmtpd/aiosmtpd/smtp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitmodules">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/aiosmtpd/aiosmtpd/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/aiosmtpd/aiosmtpd/__main__.py" />
+    <entry file="file://$PROJECT_DIR$/aiosmtpd/setup.py" />
+    <entry file="file://$PROJECT_DIR$/aiosmtpd/aiosmtpd/smtp.py" />
+    <entry file="file://$PROJECT_DIR$/.gitmodules" />
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1269023803/errno.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -593,16 +633,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-          <folding>
-            <element signature="e#214#228#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/client.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/smtpd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -610,16 +641,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py" />
     <entry file="file://$USER_HOME$/venv/Lib/site-packages/dnslib/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -644,17 +666,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/venv/Lib/site-packages/dnslib/dns.py">
+    <entry file="file://$PROJECT_DIR$/both_server.spec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="49" column="65" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="65" />
+        <state relative-caret-position="493">
+          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/venv/Lib/site-packages/dnslib/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="1887">
           <caret line="113" column="54" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/venv/Lib/site-packages/dnslib/dns.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="49" column="65" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -665,40 +694,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smtp/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding>
-            <element signature="e#365#379#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dns/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding>
-            <marker date="1549712513932" expanded="true" signature="1149:1151" ph="..." />
-            <marker date="1549712513932" expanded="true" signature="14696:14703" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both_server.spec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/both_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="255">
           <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
           <folding>
-            <element signature="e#115#133#0" expanded="true" />
             <marker date="1549708174675" expanded="true" signature="379:384" ph="..." />
           </folding>
         </state>
@@ -713,7 +713,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dns/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
+        <state relative-caret-position="325">
           <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
           <folding>
             <element signature="e#161#181#0" expanded="true" />
@@ -721,6 +721,52 @@
             <marker date="1549707973107" expanded="true" signature="391:396" ph="..." />
             <marker date="1549707973107" expanded="true" signature="544:549" ph="..." />
             <marker date="1549707973107" expanded="true" signature="1332:1337" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dns/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8892">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="e#498#511#0" expanded="true" />
+            <marker date="1549712513932" expanded="true" signature="1149:1151" ph="..." />
+            <marker date="1549712513932" expanded="true" signature="14696:14703" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smtp/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="65" lean-forward="true" selection-start-line="33" selection-end-line="62" selection-end-column="65" />
+          <folding>
+            <element signature="e#365#379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5049">
+          <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
+          <folding>
+            <element signature="e#499#513#0" expanded="true" />
+            <element signature="e#2343#5213#0" />
+            <element signature="e#5239#6641#0" />
+            <element signature="e#6669#7030#0" />
+            <element signature="e#7061#7860#0" />
+            <element signature="e#7889#8173#0" />
+            <element signature="e#8202#8657#0" />
+            <element signature="e#8689#8925#0" />
+            <element signature="e#8958#9153#0" />
+            <element signature="e#9182#10888#0" />
+            <marker date="1550198558396" expanded="true" signature="1764:2238" ph="..." />
+            <marker date="1550198558396" expanded="true" signature="18423:18497" ph="..." />
+            <marker date="1550198558396" expanded="true" signature="19278:19415" ph="..." />
+            <marker date="1550198558396" expanded="true" signature="19461:19466" ph="..." />
+            <marker date="1550198558396" expanded="true" signature="19461:19759" ph="..." />
           </folding>
         </state>
       </provider>
