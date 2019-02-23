@@ -8,7 +8,7 @@
 
 SERVER = "127.0.0.1"
 # SERVER = "8.8.8.8"
-TARGET_FQDN = "jojo.io"
+TARGET_FQDN = "a.team8.cybertigers.club"
 '''
 Copyright (c) 2014 Valera Likhosherstov <v.lihosherstov@gmail.com>
 dns message structures
