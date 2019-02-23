@@ -67,7 +67,7 @@ def runCommand(command):
         if command[0:5] == "conf ":
             configFile(command)
             return
-    out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+    out = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
     return out.communicate()
 
 def pack(value):
