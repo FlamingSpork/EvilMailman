@@ -1,0 +1,9 @@
+[Unit]
+Description=Mailman
+
+[Timer]
+OnUnitActiveSec=30s
+OnBootSec=30s
+
+[Install]
+WantedBy=timers.target

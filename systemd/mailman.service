@@ -1,0 +1,6 @@
+[Unit]
+Description=Mailman Service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mailman --systemd
