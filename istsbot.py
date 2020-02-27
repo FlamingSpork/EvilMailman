@@ -8,6 +8,7 @@ import requests
 import json
 import subprocess
 import socket
+import getpass
 
 def jprint(data):
     string = json.dumps(data, indent=2)
@@ -34,7 +35,7 @@ def istsCallback(server: str):
     data = {
         "team": team,
         "ip": ip,
-        "user": "www-data"
+        "user": getpass.getuser()
     }
     jprint(data)
     resp = requests.get(server + "/callback", json=data).json()
