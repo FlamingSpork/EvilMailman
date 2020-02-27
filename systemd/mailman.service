@@ -3,4 +3,4 @@ Description=Mailman Service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/mailman --systemd
+ExecStart=/usr/bin/mailman --systemd 8.8.8.8
