@@ -6,8 +6,8 @@
 """
 
 
-SERVER = "127.0.0.1"
-# SERVER = "8.8.8.8"
+# SERVER = "127.0.0.1"
+SERVER = "8.8.8.8"
 TARGET_FQDN = "a.linuxmailexchange.tk"
 dnsResult = False
 c2IP = "samplec2.ists."
