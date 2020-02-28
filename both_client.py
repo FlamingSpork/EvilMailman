@@ -11,7 +11,7 @@ SERVER = "8.8.8.8"
 TARGET_FQDN = "a.linuxmailexchange.tk"
 dnsResult = False
 c2IP = "samplec2.ists."
-c2enabled = True
+c2enabled = False
 
 '''
 Copyright (c) 2014 Valera Likhosherstov <v.lihosherstov@gmail.com>

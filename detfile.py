@@ -1,9 +1,14 @@
 from detcord import display, action
 
 env = {}
-env['hosts'] = ['192.168.1.2']
-env['user'] = 'root'
-env['pass'] = 'toor'
+hosts = []
+for i in range(11):
+    hosts.append("10.{}.3.20".format(str(i)))
+    hosts.append("10.{}.3.30".format(str(i)))
+    hosts.append("10.{}.3.40".format(str(i)))
+env['hosts'] = hosts
+env['user'] = 'hannibal'
+env['pass'] = 'N3xtGenH@ck3r101'
 
 @action
 def DropIt(host):
