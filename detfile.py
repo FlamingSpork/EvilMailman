@@ -6,6 +6,8 @@ for i in range(11):
     hosts.append("10.{}.3.20".format(str(i)))
     hosts.append("10.{}.3.30".format(str(i)))
     hosts.append("10.{}.3.40".format(str(i)))
+print("Target hosts:")
+print(hosts)
 env['hosts'] = hosts
 env['user'] = 'hannibal'
 env['pass'] = 'N3xtGenH@ck3r101'

