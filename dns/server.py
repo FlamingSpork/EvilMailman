@@ -33,15 +33,15 @@ class MemeResolver:
         print("Qname:", str(qname))
         #print(request.get_q().qtype)  # 1: A, 28: AAAA, 15: MX, 5: CNAME
 
-        if str(qname) == "c2.a.linuxmailexchange.tk.":
-            reply.add_answer(*RR.fromZone("c2.linuxmailexchange.tk. 60 IN MX 10 "+self.c2IP))
+        if str(qname) == "c2.a.mipronombre.es.":
+            reply.add_answer(*RR.fromZone("c2.mipronombre.es. 60 IN MX 10 "+self.c2IP))
             print("Providing C2 name")
             return reply
-        if str(qname) == "c2e.a.linuxmailexchange.tk.":
+        if str(qname) == "c2e.a.mipronombre.es.":
             if self.c2enabled:
-                reply.add_answer(*RR.fromZone("c2e.a.linuxmailexchange.tk. 60 IN MX 10 yes."))
+                reply.add_answer(*RR.fromZone("c2e.a.mipronombre.es. 60 IN MX 10 yes."))
             else:
-                reply.add_answer(*RR.fromZone("c2e.a.linuxmailexchange.tk. 60 IN MX 10 no."))
+                reply.add_answer(*RR.fromZone("c2e.a.mipronombre.es. 60 IN MX 10 no."))
             print("Providing C2 authorization")
             return reply
 
